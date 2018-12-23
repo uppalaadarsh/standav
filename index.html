@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Standav</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>  
+
+<div class="navbar">
+  <a href="#home">Home</a>
+  <a href="#news">clients</a>
+  <div class="dropdown">
+    <button class="dropbtn" onclick="myFunction()">services
+      <i class="fa fa-angle-down"></i>
+    </button>
+    <div class="dropdown-content" id="myDropdown"> 
+      <div class="div-outer">
+        <div class="div-inner">
+          enterprise services
+        </div>
+      </div>
+      <div class="div-outer">
+        <div class="div-inner">
+          accounting services
+        </div>
+      </div>
+      <div class="div-outer">
+        <div class="div-inner">
+          network services
+        </div>
+      </div>
+      <div class="div-outer">
+        <div class="div-inner">
+          management services
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="#consulting">consulting</a> 
+  <div class="right-nav">
+    <a href="#login">login</a>
+    <a href="#register">register</a>
+  </div>
+</div>
+ 
+<div class="side-nav">
+  <div class="side-nav-outer">
+    <div class="side-nav-inner">  asd
+    </div>
+  </div>
+  <div class="side-nav-outer">
+    <div class="side-nav-inner">  asd
+    </div>
+  </div>
+  <div class="side-nav-outer">
+    <div class="side-nav-inner">  asd
+    </div>
+  </div>
+  <div class="side-nav-outer">
+    <div class="side-nav-inner">  asd
+    </div>
+  </div>
+</div>
+
+<script> 
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+} 
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+  var myDropdown = document.getElementById("myDropdown");
+    if (myDropdown.classList.contains('show')) {
+      myDropdown.classList.remove('show');
+    }
+  }
+}
+</script> 
+
+</body>
+</html>
