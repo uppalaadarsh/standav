@@ -6,12 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="index.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>  
 
 <div class="navbar">
-  <a href="#home">Home</a>
-  <a href="#news">clients</a>
+  <a href="home.html">Home</a>
+  <a href="#">clients</a>
   <div class="dropdown">
     <button class="dropbtn" onclick="myFunction()">services
       <i class="fa fa-angle-down"></i>
@@ -19,43 +20,42 @@
     <div class="dropdown-content" id="myDropdown"> 
       <div class="div-outer">
         <div class="div-inner">
-          enterprise services
+          <a href="#">enterprise services</a>
         </div>
       </div>
       <div class="div-outer">
         <div class="div-inner">
-          accounting services
+          <a href="#">accounting services</a>
         </div>
       </div>
       <div class="div-outer">
         <div class="div-inner">
-          network services
+          <a href="index.html">network services</a>
         </div>
       </div>
       <div class="div-outer">
         <div class="div-inner">
-          management services
+          <a href="#">management services</a>
         </div>
       </div>
     </div>
   </div>
   <a href="#consulting">consulting</a> 
   <div class="right-nav">
-    <a href="#login">login</a>
-    <a href="#register">register</a>
+    <a href="#">login</a>
+    <a href="#">register</a>
   </div>
 </div>
  
-
 <div class="side-nav">
-  <div class="side-nav-outer" onclick="openCity(event, 'first-tab')" >
+  <div class="side-nav-outer" onclick="openCity(event, 'first-tab')" id="defaultOpen">
     <a href="#">
       <div class="side-nav-inner">  
         <i class="fa fa-recycle"></i>
       </div>
     </a>
   </div>
-  <div class="side-nav-outer" onclick="openCity(event, 'second-tab')" id="defaultOpen">
+  <div class="side-nav-outer" onclick="openCity(event, 'second-tab')">
     <a href="#">
       <div class="side-nav-inner">  
         <i class="fa fa-recycle"></i>
@@ -83,7 +83,6 @@
     <p>first-tab working fine.</p>
   </div>
   <div id="second-tab" class="tabcontent side-nav">  
-    
     <div class="side-nav-outer">
       <a href="#">
         <div class="side-nav-inner">    
@@ -93,7 +92,7 @@
         </div>
       </a>
     </div>
-    <div class="side-nav-outer">
+    <div class="side-nav-outer" id="tabcontent-bottom">
       <a href="#">
         <div class="side-nav-inner">  
           <span>data center</span>
@@ -120,7 +119,6 @@
         </div>
       </a>
     </div>
-
   </div>
   <div id="third-tab" class="tabcontent"> 
     <h3>third-tab</h3>
@@ -132,37 +130,91 @@
   </div>
 </div>
 
-<script> 
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-} 
-window.onclick = function(e) {
-  if (!e.target.matches('.dropbtn')) {
-  var myDropdown = document.getElementById("myDropdown");
-    if (myDropdown.classList.contains('show')) {
-      myDropdown.classList.remove('show');
-    }
-  }
-} 
 
-function openCity(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("side-nav-outer");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
+<div class="tabs-bottom side-nav">
 
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
+  <h4>regionwise data centers</h4>
 
-</script> 
+  <div class="left-side">
+    <div class="side-nav-outer active" id="tabcontent-bottom">
+      <a href="#">
+        <div class="side-nav-inner">  
+          <span>usa</span>   
+        </div>
+      </a>
+    </div>
+    <div class="side-nav-outer" id="tabcontent-bottom">
+      <a href="#">
+        <div class="side-nav-inner">  
+          <span>england</span> 
+        </div>
+      </a>
+    </div>
+    <div class="side-nav-outer" id="tabcontent-bottom">
+      <a href="#">
+        <div class="side-nav-inner">  
+          <span>germany</span> 
+        </div>
+      </a>
+    </div>
+    <div class="side-nav-outer" id="tabcontent-bottom">
+      <a href="#">
+        <div class="side-nav-inner">  
+          <span>france</span> 
+        </div>
+      </a>
+    </div>
+    <div class="side-nav-outer" id="tabcontent-bottom">
+      <a href="#">
+        <div class="side-nav-inner">  
+          <span>uae</span> 
+        </div>
+      </a>
+    </div>
+  </div> <!-- end for left-side -->
 
+  <canvas id="myCanvas"></canvas>
+
+  <div class="right-side">
+    <div class="side-nav-outer" id="tabcontent-bottom">
+      <a href="#">
+        <div class="side-nav-inner">  
+          <span>australia</span> 
+        </div>
+      </a>
+    </div>
+    <div class="side-nav-outer" id="tabcontent-bottom">
+      <a href="#">
+        <div class="side-nav-inner">  
+          <span>poland</span> 
+        </div>
+      </a>
+    </div>
+    <div class="side-nav-outer active" id="tabcontent-bottom">
+      <a href="#">
+        <div class="side-nav-inner">  
+          <span>india</span>  
+        </div>
+      </a>
+    </div>
+    <div class="side-nav-outer" id="tabcontent-bottom">
+      <a href="#">
+        <div class="side-nav-inner">  
+          <span>canada</span> 
+        </div>
+      </a>
+    </div>
+    <div class="side-nav-outer" id="tabcontent-bottom">
+      <a href="#">
+        <div class="side-nav-inner">  
+          <span>russia</span> 
+        </div>
+      </a>
+    </div>
+  </div> <!-- end for right-side -->
+
+</div>
+
+<script src="index.js"></script> 
 </body>
 </html>

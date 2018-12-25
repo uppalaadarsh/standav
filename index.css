@@ -19,7 +19,7 @@ html, body {
 }
 .navbar a {
   float: left;
-  font-size: 16px;
+  font-size: 12px;
   color: white;
   text-align: var(--text-center);
   padding: 14px 16px;
@@ -27,6 +27,7 @@ html, body {
   text-decoration: none;
   margin-right: 19px;
   background: var(--dimgray);
+  text-transform: uppercase;
 }
 .dropdown {
   float: left; 
@@ -34,7 +35,8 @@ html, body {
 }
 .dropdown .dropbtn {
   cursor: pointer;
-  font-size: 16px;  
+  font-size: 12px;  
+  text-transform: uppercase;
   border: none;
   outline: none;
   color: white;
@@ -85,7 +87,7 @@ html, body {
   width: 0;
   border-left: 35px solid var(--dimgray);
   border-right: 0px solid transparent;
-  border-top: 46px solid transparent;
+  border-top: 42px solid transparent;
   top: 0px;
   right: -34px;
   z-index: 99;  
@@ -95,6 +97,7 @@ html, body {
   border-left: 35px solid #14A5E8 !important;
   border-right: 0px solid transparent !important;
   border-top: 46px solid transparent !important;
+
 } 
 .navbar .dropdown .dropdown-content a::after, 
 .navbar .dropdown .dropdown-content a:hover::after {
@@ -102,6 +105,15 @@ html, body {
 } 
 a[href="#consulting"] {
   margin-left: 18px;
+}
+a[href="#register"] { 
+  background-color: var(--right-nav-hover);
+  transition: var(--transition);
+}
+a[href="#register"]::after {
+  border-left: 35px solid var(--right-nav-hover) !important;
+  border-right: 0px solid transparent !important;
+  border-top: 46px solid transparent !important;
 }
 .div-outer {
  /* Chrome / Safari */
@@ -155,6 +167,8 @@ a[href="#consulting"] {
   -webkit-background-size: 51% 50%;
   background-size: 51% 50%;
   background-repeat: no-repeat;
+  text-transform: uppercase;
+  font-size: 11px;
 }
 .side-nav {
   padding: 0px 10px;
@@ -209,17 +223,7 @@ a[href="#consulting"] {
   background-repeat: no-repeat;
   max-width: 52px;
 }
-.navbar .right-nav a:hover {
-  background-color: var(--right-nav-hover);
-  transition: var(--transition);
-}
-.navbar .right-nav a:hover::after { 
-  border-left: 35px solid var(--right-nav-hover) !important;
-  border-right: 0px solid transparent !important;
-  border-top: 46px solid transparent !important;
-  transition: var(--transition);
-}
-.side-nav-outer.active, .side-nav-outer.active a .side-nav-inner {
+.side-nav-outer.active, .side-nav-outer.active a .side-nav-inner, .active {
   background-color: var(--body-hover);
   color: var(--white);
   transition: all 0.2s ease;
@@ -229,10 +233,28 @@ a[href="#consulting"] {
   width: 90%;
 }
 .tabcontent .side-nav-outer {
-
+  --notchSize: 11px;
+  clip-path: polygon( 0% var(--notchSize), 
+                      var(--notchSize) 0%,
+                      calc(100% - var(--notchSize)) -100%,           
+                      100% var(--notchSize),
+                      100% calc(100% - var(--notchSize)),              
+                      calc(100% - var(--notchSize)) 100%,
+                      var(--notchSize) 100%,
+                      -100% calc(100% - var(--notchSize))                          
+                    )
 }
 .tabcontent .side-nav-inner {
-  
+  --notchSize: 10px;
+  clip-path: polygon( 0% var(--notchSize), 
+                      var(--notchSize) -1%,
+                      calc(100% - var(--notchSize)) 0%, 
+                      200% var(--notchSize), 
+                      100% calc(100% - var(--notchSize)), 
+                      calc(100% - var(--notchSize)) 100%, 
+                      var(--notchSize) 200%, 
+                      0% calc(100% - var(--notchSize)) 
+                      ) 
 }
 .tabs-section .side-nav {
   width: 100%;
@@ -255,6 +277,17 @@ a[href="#consulting"] {
   top: 7px;
   right: 10px;
 }
+.show .div-inner a {
+  float: none !important;
+  padding: 3px;
+  color: #fff;
+  text-align: center !important;
+  font-size: 11px;
+  margin-right: 0;
+}
+.show .div-inner a:hover {
+  background-color: transparent !important;
+}
 .tabs-section .side-nav-inner span:first-child {
   font-size: 13px;
   text-transform: uppercase;
@@ -268,6 +301,66 @@ a[href="#consulting"] {
   font-family: Helvetica, sans-serif;
   font-weight: bold;
 }
-.tabcontent a {
+a {
   text-decoration: none;
+}
+.tabs-bottom {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  display: none;
+  width: 50%;
+  z-index: 99;
+  background: rgba(76, 175, 80, 0.1); 
+}
+.left-side {
+  float: left;
+  width: 30%;
+}
+.right-side {
+  float: right;
+  width: 30%;
+}
+.tabs-bottom.side-nav .side-nav-outer {
+  --notchSize: 11px;
+  max-width: 100%;
+  clip-path: polygon( 0% var(--notchSize),       
+                      var(--notchSize) 0%,
+                      calc(100% - var(--notchSize)) 0%,
+                      100% var(--notchSize),
+                      100% calc(100% - var(--notchSize)),
+                      calc(100% - var(--notchSize)) 100%,
+                      var(--notchSize) 100%,
+                      0% calc(100% - var(--notchSize))
+                    )
+}
+.tabs-bottom.side-nav .side-nav-inner {
+  --notchSize: 10px;
+  max-width: 100%;
+  text-transform: uppercase;
+  font-size: 15px;
+  letter-spacing: -1px;
+  font-weight: bold;
+  font-family: helvetica;
+  clip-path: polygon( 0% var(--notchSize), 
+                      var(--notchSize) 0%,
+                      calc(100% - var(--notchSize)) 0%, 
+                      100% var(--notchSize), 
+                      100% calc(100% - var(--notchSize)), 
+                      calc(100% - var(--notchSize)) 100%, 
+                      var(--notchSize) 100%, 
+                      0% calc(100% - var(--notchSize)) 
+                    )
+}
+.tabs-bottom h4 {
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-family: helvetica;
+  border-bottom: 2px solid var(--black);
+}
+canvas#myCanvas {
+  position: fixed;
+  right: 11%;
+  width: 26%; 
 }
