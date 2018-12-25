@@ -46,26 +46,89 @@
   </div>
 </div>
  
+
 <div class="side-nav">
-  <div class="side-nav-outer">
-    <div class="side-nav-inner">  
-      <i class="fa fa-recycle"></i>
-    </div>
+  <div class="side-nav-outer" onclick="openCity(event, 'first-tab')" >
+    <a href="#">
+      <div class="side-nav-inner">  
+        <i class="fa fa-recycle"></i>
+      </div>
+    </a>
   </div>
-  <div class="side-nav-outer">
-    <div class="side-nav-inner">  
-      <i class="fa fa-recycle"></i>
-    </div>
+  <div class="side-nav-outer" onclick="openCity(event, 'second-tab')" id="defaultOpen">
+    <a href="#">
+      <div class="side-nav-inner">  
+        <i class="fa fa-recycle"></i>
+      </div>
+    </a>
   </div>
-  <div class="side-nav-outer">
-    <div class="side-nav-inner">    
-      <i class="fa fa-recycle"></i>
-    </div>
+  <div class="side-nav-outer" onclick="openCity(event, 'third-tab')">
+    <a href="#">
+      <div class="side-nav-inner">    
+        <i class="fa fa-recycle"></i>
+      </div>
+    </a>
   </div>
-  <div class="side-nav-outer">
-    <div class="side-nav-inner">    
-      <i class="fa fa-recycle"></i>
+  <div class="side-nav-outer" onclick="openCity(event, 'fourth-tab')">
+    <a href="#">
+      <div class="side-nav-inner">    
+        <i class="fa fa-recycle"></i>
+      </div>
+    </a>
+  </div>
+</div>
+<div class="tabs-section">
+  <div id="first-tab" class="tabcontent"> 
+    <h3>first-tab</h3>
+    <p>first-tab working fine.</p>
+  </div>
+  <div id="second-tab" class="tabcontent side-nav">  
+    
+    <div class="side-nav-outer">
+      <a href="#">
+        <div class="side-nav-inner">    
+          <span>data center</span>
+          <span>regional data center</span>
+          <i class="fa fa-recycle"></i>
+        </div>
+      </a>
     </div>
+    <div class="side-nav-outer">
+      <a href="#">
+        <div class="side-nav-inner">  
+          <span>data center</span>
+          <span>regional data center</span>  
+          <i class="fa fa-recycle"></i>
+        </div>
+      </a>
+    </div>
+    <div class="side-nav-outer">
+      <a href="#">
+        <div class="side-nav-inner">  
+          <span>data center</span>
+          <span>regional data center</span>  
+          <i class="fa fa-recycle"></i>
+        </div>
+      </a>
+    </div>
+    <div class="side-nav-outer">
+      <a href="#">
+        <div class="side-nav-inner"> 
+          <span>data center</span>
+          <span>regional data center</span>   
+          <i class="fa fa-recycle"></i>
+        </div>
+      </a>
+    </div>
+
+  </div>
+  <div id="third-tab" class="tabcontent"> 
+    <h3>third-tab</h3>
+    <p>third-tab working fine.</p>
+  </div>
+  <div id="fourth-tab" class="tabcontent"> 
+    <h3>fourth-tab</h3>
+    <p>fourth-tab working fine.</p>
   </div>
 </div>
 
@@ -80,7 +143,25 @@ window.onclick = function(e) {
       myDropdown.classList.remove('show');
     }
   }
+} 
+
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("side-nav-outer");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
 }
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
 </script> 
 
 </body>

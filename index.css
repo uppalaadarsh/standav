@@ -1,3 +1,13 @@
+:root {
+  --dimgray : #696969;
+  --text-center: center;
+  --body-hover: #14A5E8;
+  --gray: #808080;
+  --white: #ffffff;
+  --black: #000000;
+  --transition: all 0.2s ease;
+  --right-nav-hover: #FEA010;
+}
 html, body {
   margin:0;
 }
@@ -11,12 +21,12 @@ html, body {
   float: left;
   font-size: 16px;
   color: white;
-  text-align: center;
+  text-align: var(--text-center);
   padding: 14px 16px;
   position: relative;
   text-decoration: none;
   margin-right: 19px;
-  background: #696969;
+  background: var(--dimgray);
 }
 .dropdown {
   float: left; 
@@ -32,10 +42,11 @@ html, body {
   background-color: inherit;
   font-family: inherit;
   margin: 0;
-  background: #696969;
+  background: var(--dimgray);
 }
 .navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
-  background-color: rgb(100, 129, 225);
+  background-color: #14A5E8;
+  transition: var(--transition);
 }
 .dropdown-content {
   display: none;
@@ -57,7 +68,7 @@ html, body {
 .show {
   display: block;
   position: fixed;
-  background: #696969;
+  background: var(--dimgray);
   width: 100%;
   left: 0;
   right: 0;
@@ -66,41 +77,27 @@ html, body {
 .right-nav {
   float: right;
 }
-.navbar a::after {
+.navbar a::after,
+.dropdown:after {
   position: absolute;
   content: "";
   height: 0;
   width: 0;
-  border-left: 35px solid #696969;
+  border-left: 35px solid var(--dimgray);
   border-right: 0px solid transparent;
   border-top: 46px solid transparent;
   top: 0px;
   right: -34px;
   z-index: 99;  
+  transition: var(--transition);
 }
-.navbar a:hover::after{ 
-  border-left: 35px solid rgb(100, 129, 225) !important;
+.navbar a:hover::after, .dropdown:hover::after { 
+  border-left: 35px solid #14A5E8 !important;
   border-right: 0px solid transparent !important;
   border-top: 46px solid transparent !important;
-}
-.dropdown:after { 
-  position: absolute;
-  content: "";
-  height: 0;
-  width: 0;
-  border-left: 35px solid #696969;
-  border-right: 0px solid transparent;
-  border-top: 46px solid transparent;
-  top: 0px;
-  right: -34px;
-  z-index: 99;
-}
-.dropdown:hover::after { 
-  border-left: 35px solid rgb(100, 129, 225) !important;
-  border-right: 0px solid transparent !important;
-  border-top: 46px solid transparent !important;
-}
-.navbar .dropdown .dropdown-content a::after, .navbar .dropdown .dropdown-content a:hover::after {
+} 
+.navbar .dropdown .dropdown-content a::after, 
+.navbar .dropdown .dropdown-content a:hover::after {
   border-left: none !important;
 } 
 a[href="#consulting"] {
@@ -109,47 +106,48 @@ a[href="#consulting"] {
 .div-outer {
  /* Chrome / Safari */
   background:
-    -webkit-linear-gradient(40deg,  transparent 14px, grey 14px), /* bottom left */
-    -webkit-linear-gradient(135deg, transparent 14px, grey 14px), /* bottom right */
-    -webkit-linear-gradient(-135deg, transparent 14px, grey 10px), /* top right */
-    -webkit-linear-gradient(315deg, transparent 14px, grey 5px); /* top left */
+    -webkit-linear-gradient(40deg,  transparent 14px, var(--gray) 14px), /* bottom left */
+    -webkit-linear-gradient(135deg, transparent 14px, var(--gray) 14px), /* bottom right */
+    -webkit-linear-gradient(-135deg, transparent 14px, var(--gray) 10px), /* top right */
+    -webkit-linear-gradient(315deg, transparent 14px, var(--gray) 5px); /* top left */
 /* mozilla */
   background:
-    -moz-linear-gradient(40deg,  transparent 14px, grey 14px), /* bottom left */
-    -moz-linear-gradient(135deg, transparent 14px, grey 14px), /* bottom right */
-    -moz-linear-gradient(-135deg, transparent 14px, grey 10px), /* top right */
-    -moz-linear-gradient(315deg, transparent 14px, grey 5px); /* top left */
+    -moz-linear-gradient(40deg,  transparent 14px, var(--gray) 14px), /* bottom left */
+    -moz-linear-gradient(135deg, transparent 14px, var(--gray) 14px), /* bottom right */
+    -moz-linear-gradient(-135deg, transparent 14px, var(--gray) 10px), /* top right */
+    -moz-linear-gradient(315deg, transparent 14px, var(--gray) 5px); /* top left */
 /* opera */
   background:
-    -o-linear-gradient(40deg,  transparent 14px, grey 14px), /* bottom left */
-    -o-linear-gradient(135deg, transparent 14px, grey 14px), /* bottom right */
-    -o-linear-gradient(-135deg, transparent 14px, grey 10px), /* top right */
-    -o-linear-gradient(315deg, transparent 14px, grey 5px); /* top left */      
+    -o-linear-gradient(40deg,  transparent 14px, var(--gray) 14px), /* bottom left */
+    -o-linear-gradient(135deg, transparent 14px, var(--gray) 14px), /* bottom right */
+    -o-linear-gradient(-135deg, transparent 14px, var(--gray) 10px), /* top right */
+    -o-linear-gradient(315deg, transparent 14px, var(--gray) 5px); /* top left */      
   padding: 2px;
-  color: #fff;
+  color: var(--white);
   display: inline-block;  
 }
 .div-inner {
   /* Safari / Chrome*/
   background:
-    -webkit-linear-gradient(40deg,  transparent 14px, dimgrey 14px), /* bottom left */
-    -webkit-linear-gradient(135deg, transparent 14px, dimgrey 14px), /* bottom right */
-    -webkit-linear-gradient(-135deg, transparent 14px, dimgrey 10px), /* top right */
-    -webkit-linear-gradient(315deg, transparent 14px, dimgrey 5px); /* top left */
+    -webkit-linear-gradient(40deg,  transparent 14px, var(--dimgray) 14px), /* bottom left */
+    -webkit-linear-gradient(135deg, transparent 14px, var(--dimgray) 14px), /* bottom right */
+    -webkit-linear-gradient(-135deg, transparent 14px, var(--dimgray) 10px), /* top right */
+    -webkit-linear-gradient(315deg, transparent 14px, var(--dimgray) 5px); /* top left */
 /* Mozilla */
   background:
-    -moz-linear-gradient(40deg,  transparent 14px, dimgrey 14px), /* bottom left */
-    -moz-linear-gradient(135deg, transparent 14px, dimgrey 14px), /* bottom right */
-    -moz-linear-gradient(-135deg, transparent 14px, dimgrey 10px), /* top right */
-    -moz-linear-gradient(315deg, transparent 14px, dimgrey 5px); /* top left */
+    -moz-linear-gradient(40deg,  transparent 14px, var(--dimgray) 14px), /* bottom left */
+    -moz-linear-gradient(135deg, transparent 14px, var(--dimgray) 14px), /* bottom right */
+    -moz-linear-gradient(-135deg, transparent 14px, var(--dimgray) 10px), /* top right */
+    -moz-linear-gradient(315deg, transparent 14px, var(--dimgray) 5px); /* top left */
   /* Opera */
   background:
-    -o-linear-gradient(40deg,  transparent 14px, dimgrey 14px), /* bottom left */
-    -o-linear-gradient(135deg, transparent 14px, dimgrey 14px), /* bottom right */
-    -o-linear-gradient(-135deg, transparent 14px, dimgrey 10px), /* top right */
-    -o-linear-gradient(315deg, transparent 14px, dimgrey 5px); /* top left */
+    -o-linear-gradient(40deg,  transparent 14px, var(--dimgray) 14px), /* bottom left */
+    -o-linear-gradient(135deg, transparent 14px, var(--dimgray) 14px), /* bottom right */
+    -o-linear-gradient(-135deg, transparent 14px, var(--dimgray) 10px), /* top right */
+    -o-linear-gradient(315deg, transparent 14px, var(--dimgray) 5px); /* top left */
   padding: 15px; 
-  text-align: center;
+  text-align: var(--text-center);
+  cursor: pointer;
 }
 .div-outer, .div-inner {
   background-position: bottom left, bottom right, top right, top left;
@@ -160,58 +158,48 @@ a[href="#consulting"] {
 }
 .side-nav {
   padding: 0px 10px;
+  width: 4%;
+  float: left;
 }
 .side-nav .side-nav-outer { 
-  /* background:
-    -webkit-linear-gradient(40deg,  transparent 14px, #000 14px), 
-    -webkit-linear-gradient(135deg, transparent 0px, #000 0px), 
-    -webkit-linear-gradient(-135deg, transparent 14px, #000 10px),
-    -webkit-linear-gradient(315deg, transparent 0px, #000 0px); 
-  padding: 10px;
-  color: #fff; 
-  width: 50px;
-  margin-top: 20px; */
-
-  margin-top: 7px;
-    max-width: 41px;
-    padding: 2px;
-    background: #000000;
-    --notchSize: 11px;
-    clip-path: polygon( 0% var(--notchSize), 
-                        var(--notchSize) 0%, 
-                        calc(100% - var(--notchSize)) 0%, 
-                        100% var(--notchSize), 
-                        100% calc(100% - var(--notchSize)), 
-                        calc(100% - var(--notchSize)) 100%, 
-                        var(--notchSize) 100%, 
-                        0% calc(100% - var(--notchSize))
-                        );                
+  margin-top: 7px; 
+  padding: 2px;
+  background: var(--black);
+  --notchSize: 11px;
+  clip-path: polygon( -7% var(--notchSize), 
+                      var(--notchSize) -100%,
+                      calc(100% - var(--notchSize)) 0%,           
+                      100% var(--notchSize),
+                      200% calc(100% - var(--notchSize)),              
+                      calc(100% - var(--notchSize)) 100%,
+                      var(--notchSize) 100%,
+                      0% calc(100% - var(--notchSize))                          
+                    );
 }
-.side-nav .side-nav-inner { 
-  /* padding: 10px;  
-  text-align: center;
-  background:
-  -webkit-linear-gradient(40deg,  transparent 14px, dimgrey 14px),         bottom left
-  -webkit-linear-gradient(135deg, transparent 14px, dimgrey 14px),         bottom right
-  -webkit-linear-gradient(-135deg, transparent 14px, dimgrey 10px),        top right
-  -webkit-linear-gradient(315deg, transparent 14px, dimgrey 5px);          top left */
-
-  max-width: 40px; 
-  background: #fff;
+.side-nav .side-nav-inner {  
+  background: var(--white);
   --notchSize: 10px;
-  clip-path: polygon( -3% var(--notchSize), 
-                      var(--notchSize) 0%,
+  margin: 0px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 25px;
+  text-align: var(--text-center);
+  color: var(--black);
+  clip-path: polygon( -100% var(--notchSize), 
+                      var(--notchSize) -4%,
                       calc(100% - var(--notchSize)) 0%, 
                       100% var(--notchSize), 
-                      100% calc(100% - var(--notchSize)), 
+                      150% calc(100% - var(--notchSize)), 
                       calc(100% - var(--notchSize)) 100%, 
                       var(--notchSize) 100%, 
                       0% calc(100% - var(--notchSize)) 
-                      );
-  padding-top: 9px;
-  margin: 0px;
-  padding-left: 2px;
-  font-size: 25px; 
+                      ); 
+}
+.side-nav .side-nav-inner:hover,
+.side-nav .side-nav-outer:hover {
+  background-color: var(--body-hover);
+  color: var(--white);
+  transition: var(--transition);
 }
 .side-nav-outer, .side-nav-inner {
   background-position: bottom left, bottom right, top right, top left;
@@ -219,4 +207,67 @@ a[href="#consulting"] {
   -webkit-background-size: 50% 50%;
   background-size: 50% 50%;
   background-repeat: no-repeat;
+  max-width: 52px;
+}
+.navbar .right-nav a:hover {
+  background-color: var(--right-nav-hover);
+  transition: var(--transition);
+}
+.navbar .right-nav a:hover::after { 
+  border-left: 35px solid var(--right-nav-hover) !important;
+  border-right: 0px solid transparent !important;
+  border-top: 46px solid transparent !important;
+  transition: var(--transition);
+}
+.side-nav-outer.active, .side-nav-outer.active a .side-nav-inner {
+  background-color: var(--body-hover);
+  color: var(--white);
+  transition: all 0.2s ease;
+}
+.tabs-section {
+  float: left;
+  width: 90%;
+}
+.tabcontent .side-nav-outer {
+
+}
+.tabcontent .side-nav-inner {
+  
+}
+.tabs-section .side-nav {
+  width: 100%;
+}
+.tabs-section .side-nav .side-nav-outer {
+  max-width: 25%;
+}
+.tabs-section .side-nav .side-nav-inner {
+  max-width: 100%;
+  position: relative;
+  line-height: 14px;
+  text-align: left;
+  padding-left: 20px;
+  height: 66px;
+  padding-top: 4px;
+}
+.tabs-section .side-nav-inner .fa {
+  font-size: 16px;
+  position: absolute;
+  top: 7px;
+  right: 10px;
+}
+.tabs-section .side-nav-inner span:first-child {
+  font-size: 13px;
+  text-transform: uppercase;
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+}
+.tabs-section .side-nav-inner span:nth-child(2) {
+  font-size: 10px;
+  display: block;
+  text-transform: capitalize;
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+}
+.tabcontent a {
+  text-decoration: none;
 }
